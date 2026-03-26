@@ -8,6 +8,7 @@ import type {
   PracticeModeState,
   UnpairingProgress,
 } from './bleTypes';
+
 import {
   simulateScanForDevice,
   simulateBondDevice,

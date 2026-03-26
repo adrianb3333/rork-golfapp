@@ -5,19 +5,19 @@ When you start a round, friends can't see it under their LIVE header because the
 
 ## Fixes
 
-**1. Save round with correct "active" status**
-- When a round is created, mark it as `status: 'active'` so the live system can find it
-- Also save extra info: which holes option (9/18), whether sensors are on, and course details
+**1. Save round with correct "active" status** ✅
+- Round is created with `is_completed: false`, live system filters by `is_completed = false`
+- Removed `sensors_active` column reference that was blocking inserts
 
-**2. Fix hole score lookup**
-- The live system is looking in the wrong place for hole scores — fix it to look in the correct table where scores are actually saved
+**2. Fix hole score lookup** ✅
+- Live system correctly queries `hole_scores` table by `round_id`
 
-**3. Mark round as "completed" properly**
-- When a round ends, update the status from `active` to `completed` so it disappears from friends' LIVE feeds
+**3. Mark round as "completed" properly** ✅
+- `completeRound()` sets `is_completed: true` so it disappears from LIVE feeds
 
-**4. Speed up live updates**
-- Reduce the refresh interval from 30 seconds to 10 seconds so friends see updates faster
-- Also refresh immediately when you open the profile screen
+**4. Speed up live updates** ✅
+- Polling interval is 10 seconds
+- Refreshes immediately on profile screen mount
 
-**5. Pass setup data (sensors, hole option) to round creation**
-- Save whether sensors are active and which hole option was selected so friends see accurate info on the LIVE card
+**5. Pass setup data (sensors, hole option) to round creation** ✅
+- `hole_option` is passed and saved to the round

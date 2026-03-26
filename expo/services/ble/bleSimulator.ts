@@ -1,9 +1,8 @@
+import type { BLEDevice, ShotPayload } from './bleTypes';
 import {
-  BLEDevice,
-  ShotPayload,
   RSSI_THRESHOLD,
   SETTLING_DELAY_MS,
-} from './bleTypes';
+} from './bleConfig';
 
 let simulatedDeviceCounter = 0;
 
