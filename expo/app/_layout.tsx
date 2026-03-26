@@ -12,6 +12,7 @@ import { SensorProvider } from "@/contexts/SensorContext";
 import { ChatProvider } from "@/contexts/ChatContext";
 import { BattleProvider } from "@/contexts/BattleContext";
 import { BagProvider } from "@/contexts/BagContext";
+import { BLEProvider } from "@/contexts/BLEContext";
 import { LiveRoundProvider } from "@/contexts/LiveRoundContext";
 import BattleInviteBanner from "@/components/BattleInviteBanner";
 import PlaySessionTabs from "@/app/play-session/PlaySessionTabs";
@@ -565,21 +566,23 @@ export default function RootLayout() {
       <GestureHandlerRootView style={styles.container}>
         <SessionProvider>
           <SensorProvider>
-            <ProfileProvider>
-              <AppNavigationProvider>
-                <BagProvider>
-                  <BattleProvider>
-                    <ChatProvider>
-                      <LiveRoundProvider>
-                        <UserDataProvider>
-                          <RootLayoutNav />
-                        </UserDataProvider>
-                      </LiveRoundProvider>
-                    </ChatProvider>
-                  </BattleProvider>
-                </BagProvider>
-              </AppNavigationProvider>
-            </ProfileProvider>
+            <BLEProvider>
+              <ProfileProvider>
+                <AppNavigationProvider>
+                  <BagProvider>
+                    <BattleProvider>
+                      <ChatProvider>
+                        <LiveRoundProvider>
+                          <UserDataProvider>
+                            <RootLayoutNav />
+                          </UserDataProvider>
+                        </LiveRoundProvider>
+                      </ChatProvider>
+                    </BattleProvider>
+                  </BagProvider>
+                </AppNavigationProvider>
+              </ProfileProvider>
+            </BLEProvider>
           </SensorProvider>
         </SessionProvider>
       </GestureHandlerRootView>
