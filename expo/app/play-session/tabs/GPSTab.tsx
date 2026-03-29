@@ -509,6 +509,15 @@ function NativeMap({ onDistanceChange, onAdjustedDistanceChange, externalHoleInd
         showsMyLocationButton={false}
         showsCompass={true}
         showsScale={true}
+        showsPointsOfInterest={false}
+        customMapStyle={[
+          { elementType: 'labels', stylers: [{ visibility: 'off' }] },
+          { featureType: 'administrative', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+          { featureType: 'poi', stylers: [{ visibility: 'off' }] },
+          { featureType: 'road', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+          { featureType: 'transit', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+          { featureType: 'water', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+        ]}
       >
         {teePosition && greenPosition && midPosition && (
           <>
